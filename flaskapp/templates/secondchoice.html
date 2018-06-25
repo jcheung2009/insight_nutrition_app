@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{% block nutranalysis %} 
+	<img src="data:image/png;base64,{{ plot_url }}" class="img-responsive" style="width:100%;">
+{% endblock %}
+{% block ingredcomp %}
+	{% if healthscore >= 0 %}
+		<h2>Change in Health Score: <span style="color:green;">{{ healthscore }}%</span></h2>
+	{% else %}
+		<h2>Change in Health Score: <span style="color:red;">{{ healthscore }}%</span></h2>
+	{% endif %}
+	<h2>Ingredient Similarity: <span style="color:orange;">{{ ingredsc }}</span></h2>
+{% endblock %}
+{% block okrecs %}
+	{% for rec in okrecs %}
+		<form action = "/secondchoice" method="GET">
+	        <button type="submit" name="recipename" value={{rec.replace(' ','_')}} class="list-group-item list-group-item-action">{{rec.title()}}</button>
+		</form>
+	{% endfor %}
+{% endblock %}
+{% block ingredlist %}
+	<div class="row placeholders">
+	   <div class="col-sm-6 placeholder">
+		<h3>First Recipe</h3>
+			<ul>
+			{% for ingred in ingredlist[0] %}
+				<li>{{ ingred }}</li>
+			{% endfor %}
+			</ul>
+	    </div>
+	    <div class="col-sm-6 placeholder">
+		<h3>Second Recipe</h3>
+			<ul>
+			{% for ingred in ingredlist[1] %}
+				<li>{{ ingred }}</li>
+			{% endfor %}
+			</ul>
+	    </div>
+	</div>
+{% endblock %}
+{% block betterrecs %}
+	{% for rec in betterrecs %}
+		<form action = "/secondchoice" method="GET">
+	        <button type="submit" name="recipename" value={{rec.replace(' ','_')}} class="list-group-item list-group-item-action">{{rec.title()}}</button>
+		</form>
+	{% endfor %}
+{% endblock %}
+{% block bestrecs %}
+	{% for rec in bestrecs %}
+		<form action = "/secondchoice" method="GET">
+	        <button type="submit" name="recipename" value={{rec.replace(' ','_')}} class="list-group-item list-group-item-action">{{rec.title()}}</button>
+		</form>
+	{% endfor %}
+{% endblock %}
+
+
+
+
+
+

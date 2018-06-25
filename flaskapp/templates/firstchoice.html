@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block nutranalysis %} 
+	<h2 class="page-header">Nutritional Analysis</h2>
+	<img src="data:image/png;base64,{{ plot_url }}" class="img-responsive" style="width:100%;">
+{% endblock %}
+{% block ingredcomp %}
+{% endblock %}
+{% block okrecs %}
+	{% for rec in okrecs %}
+		<form action = "/secondchoice" method="GET">
+	        <button type="submit" name="recipename" value={{rec.replace(' ','_')}} class="list-group-item list-group-item-action">{{rec.title()}}</button>
+		</form>
+	{% endfor %}
+{% endblock %}
+{% block betterrecs %}
+	{% for rec in betterrecs %}
+		<form action = "/secondchoice" method="GET">
+	        <button type="submit" name="recipename" value={{rec.replace(' ','_')}} class="list-group-item list-group-item-action">{{rec.title()}}</button>
+		</form>
+	{% endfor %}
+{% endblock %}
+{% block bestrecs %}
+	{% for rec in bestrecs %}
+		<form action = "/secondchoice" method="GET">
+	        <button type="submit" name="recipename" value={{rec.replace(' ','_')}} class="list-group-item list-group-item-action">{{rec.title()}}</button>
+		</form>
+	{% endfor %}
+{% endblock %}
+
