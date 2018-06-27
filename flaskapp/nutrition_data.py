@@ -16,7 +16,7 @@ def plot_nutrinfo(nutrfacts):
 
 	nutrfacts = nutrfacts*100#remove non-nutrient columns and convert to %
 	nutrfacts = nutrfacts.reindex(index=['Total Fat','Saturated Fat','Cholesterol','Sodium','Total Carbohydrates','Sugars',
-		'Protein','Vitamin A','Vitamin C','Calcium','Iron','Thiamin','Niacin','Vitamin B6','Magnesium','Folate'])
+		'Protein','Dietary Fiber','Vitamin A','Vitamin C','Calcium','Iron','Thiamin','Niacin','Vitamin B6','Magnesium','Folate'])
 	img = io.BytesIO()
 
 	plt.figure(figsize=(10,15))
@@ -101,7 +101,7 @@ def recommendations(classlabel,recipename):
 	similar,better,best = betterclasses(classlabel)
 
 	#load word vector model used to filter recipes by ingred similarity
-	nlp = spacy.load('app_data/recipe_vector_lg')
+	nlp = spacy.load('app_data/recipe_ingred_word2vec_lg')
 
 	#load ingred db (cleaned)
 	ingredsdb = pd.read_csv('app_data/ingreds_db_cleaned.csv').rename(columns={'Unnamed: 0':'recipename'})
@@ -151,7 +151,7 @@ def plot_nutrinfo_comp(firstnutrfacts,secnutrfacts):
 	'''plot comparison of nutritional info for two recipes'''
 	#combine nutr info and change df to long form 	
 	combined_nutrfacts = (pd.concat([firstnutrfacts,secnutrfacts]).iloc[:,:-5]*100).T.reindex(index=['Total Fat',
-	'Saturated Fat','Cholesterol','Sodium','Total Carbohydrates','Sugars','Protein','Vitamin A','Vitamin C','Calcium',
+	'Saturated Fat','Cholesterol','Sodium','Total Carbohydrates','Sugars','Protein','Dietary Fiber','Vitamin A','Vitamin C','Calcium',
 	'Iron','Thiamin','Niacin','Vitamin B6','Magnesium','Folate'])
 	combined_nutrfacts = combined_nutrfacts.reset_index().melt(id_vars=['index'])
 	combined_nutrfacts = combined_nutrfacts.rename(columns={'index':'nutrients'})

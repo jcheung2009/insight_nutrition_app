@@ -74,21 +74,9 @@
 	{% endblock %}
 	
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div class="row placeholders">
-            <div class="col-sm-6 placeholder">
-		{% block nutranalysis %}
-		{% endblock %}
-            </div>
-            <div class="col-sm-6 placeholder">
-		{% block ingredcomp %}
-		{% endblock %}
-`		{% block ingredlist %}
-		{% endblock %}
-            </div>
-         </div>
-
-          <h2 class="sub-header">Recipe Suggestions</h2>
-	    <div class="row placeholders">
+          
+	 <h2 class="sub-header">Recipe Suggestions</h2>
+	    <div class="row placeholders" style="margin-bottom: 2em;">
               <div class="col-sm-4 placeholder">
 		<h3>similar</h3>	
 		<div class="table-responsive">
@@ -111,6 +99,21 @@
           	</div>
 	      </div>
 	    </div>
+
+	 <div class="row placeholders">
+            <div class="col-sm-6 placeholder">
+		{% block nutranalysis %}
+		{% endblock %}
+            </div>
+            <div class="col-sm-6 placeholder">
+		{% block ingredcomp %}
+		{% endblock %}
+`		{% block ingredlist %}
+		{% endblock %}
+            </div>
+         </div>
+
+          
         </div>
       </div>
     </div>
