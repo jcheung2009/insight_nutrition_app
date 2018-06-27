@@ -15,3 +15,7 @@ body {
 .btn-primary:hover {
   background-color: blue;
 }
+
+.navbar {
+  font-family: 'Quicksand', sans-serif;
+}

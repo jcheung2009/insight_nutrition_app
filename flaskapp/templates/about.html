@@ -38,7 +38,18 @@
 
   <body>
     {% block jumbotron %}
-    <div class="jumbotron">
+    <nav class="navbar navbar-expand-lg navbar-light" style="margin-bottom:2em;background-color:#ffD080;">
+	<h1 class="navbar-brand" style="color:white;font-size:2em;">SomeRecipes...are better</h1>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	   <div class="navbar-nav">
+		<a class="nav-item nav-link" href="./index" style="color:white;">refresh</a>
+		<a class="nav-item nav-link" href="./about" style="color:white;">about</a>
+	   </div>
+	</div>
+    </nav>
+
+
+    <!--<div class="jumbotron">
       <div class="container">
         <h1 class="site-title"> SomeRecipes...are better</h1>
 	<p class="site-tag">Select a Main Dish recipe from allrecipes.com and compare the nutritional facts with alternative recipe suggestions!</p>
@@ -48,7 +59,7 @@
 
 	</ul>
       </div>
-    </div>
+    </div>-->
     {% endblock %}
 
     <div class="container-fluid">
