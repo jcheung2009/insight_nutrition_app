@@ -28,6 +28,12 @@ def index():
 	np.save('app_data/maindish_indices',indices)
 	return render_template("index.html",maindishes=maindishlist)
 
+@app.route('/example')
+def example():
+	maindish_indices = np.load('app_data/maindish_indices_ex.npy')
+	maindishlist = recipedb.iloc[maindish_indices].index
+	return render_template("index.html",maindishes=maindishlist)
+
 @app.route('/firstchoice')
 def firstchoice_displfacts():
 	'''Display nutritional facts for selected main dish recipe, show list of recommended alternative recipes'''
